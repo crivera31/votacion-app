@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { VotacionService } from '../service/votacion.service';
 
 @Component({
@@ -25,9 +25,9 @@ export class VotacionOnlineComponent implements OnInit {
   onVotar() {
     const dni = this.dni.value;
     if(dni.length === 0) {
-      console.log('Ingrese su dni');
+      return  Swal.fire('Error','Ponga su DNI.','error');
     } else {
-      console.log('mi dni: ',dni);
+      // console.log('mi dni: ',dni);
       this.votacionService.getVotante(dni).subscribe(
         res => {
           console.log(res)
@@ -35,7 +35,8 @@ export class VotacionOnlineComponent implements OnInit {
             return  Swal.fire('Error',res.nombre + ' usted ya realizo su voto.','error');
           } else {
             this.router.navigateByUrl('/home');
-            alert('Bienvenido '+res.nombre)
+            // alert('Bienvenido '+res.nombre)
+            Swal.fire('Bienvenido',res.nombre,'success');
           }
         }
       );

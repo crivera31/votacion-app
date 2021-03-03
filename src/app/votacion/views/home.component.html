@@ -3,12 +3,12 @@
     <div class="container">
       <h2>SISTEMA DE VOTACIONES ONLINE</h2>
       <h4>SINDICATO SECTOR SALUD</h4>
-      <p style="font-size: 20px;">Bienvenido Juan Manuel Perez Cruz</p>
+      <p style="font-size: 20px;">Bienvenido Juan Perez Medrano</p>
     </div>
   </section>
   <ul>
     <li>Haga click en el nombre del Partido Político para ver sus candidatos.</li>
-    <li>Haga click en el cuadro para elegir su candidato.</li>
+    <li>Seleccione su candidato.</li>
   </ul>
   <div class="container">
     <form id="votarForm"  [formGroup]="votarForm" (ngSubmit)="onVotar()">
@@ -43,7 +43,7 @@
               <li class="list-group-item" style=" width: 8%;"></li>
               <li class="list-group-item text-center" style=" width: 84%;">Voto en Blanco</li>
               <li class="list-group-item text-center" style=" width: 8%;">
-                <input type="checkbox" formControlName="escoger">
+                <input type="radio" formControlName="escoger" [value]="-1">
               </li>
             </ul>
           </div>

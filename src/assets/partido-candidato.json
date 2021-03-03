@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nombre": "PARTIDO 1",
+    "nombre": "PARTIDO POLITICO NACIONAL PERU LIBRE",
     "candidatos": [
       {
         "id": 10,
@@ -15,7 +15,7 @@
   },
   {
     "id": 2,
-    "nombre": "PARTIDO 2",
+    "nombre": "ACCION POPULAR",
     "candidatos": [
       {
         "id": 30,
