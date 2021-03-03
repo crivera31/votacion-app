@@ -1,0 +1,22 @@
+<div class="container py-4">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h2>SISTEMA DE VOTACIONES ONLINE</h2>
+      <h4>SINDICATO SECTOR SALUD</h4>
+    </div>
+  </section>
+  <div class="container pt-3">
+    <div class="row justify-content-sm-center">
+      <div class="col-sm-6 col-md-4">
+
+        <form id="loginform">
+          <div class="form-group text-center">
+            <label for="exampleFormControlInput1">Ingrese su DNI</label>
+            <input type="text" class="form-control" (keypress)="onlyNumberKey($event)" maxlength="8" placeholder="DNI" [(formControl)]="dni">
+          </div>
+          <button class="btn btn-lg btn-primary btn-block" (click)="onVotar()">Entrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

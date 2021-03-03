@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nombre": "Juan Perez Medrano",
+    "dni": "72078380",
+    "voto": 0
+  },
+  {
+    "id": 2,
+    "nombre": "Luisa Carranza Benites",
+    "dni": "32782427",
+    "voto": 1
+  }
+]

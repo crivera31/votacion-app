@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nombre": "PARTIDO 1",
+    "candidatos": [
+      {
+        "id": 10,
+        "nombre": "KELLY ROXANA PORTALATINO AVALOS"
+      },
+      {
+        "id": 20,
+        "nombre": "ELIAS MARCIAL VARAS MELENDEZ"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "PARTIDO 2",
+    "candidatos": [
+      {
+        "id": 30,
+        "nombre": "JHAEC DARWIN ESPINOZA VARGAS"
+      },
+      {
+        "id": 40,
+        "nombre": "PRAXEDES REGINA ARMAS SANCHEZ"
+      }
+    ]
+  }
+]
