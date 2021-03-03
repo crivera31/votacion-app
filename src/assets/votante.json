@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "nombre": "Juan Perez Medrano",
+    "nombre": "Juan Luis Perez Medrano",
     "dni": "72048956",
     "voto": 0
   },
   {
     "id": 2,
-    "nombre": "Luisa Carranza Benites",
+    "nombre": "Luisa María Carranza Benites",
     "dni": "35478510",
     "voto": 1
   }
