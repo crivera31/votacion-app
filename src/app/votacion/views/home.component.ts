@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   public lstData: any;
 
   votarForm = new FormGroup({
-    escoger: new FormControl('')
+    voto: new FormControl('')
   });
   constructor(private votacionService: VotacionService) { }
 
@@ -27,9 +27,16 @@ export class HomeComponent implements OnInit {
       }
     )
   }
+  toggleVisibility(e){
+    if ( e.target.checked ) {
+      console.log('true')
+ }
+  }
+
   onVotar() {
-    const { escoger } = this.votarForm.value;
-    if(escoger === "") {
+    // console.log(this.votarForm.value)
+    const { voto } = this.votarForm.value;
+    if(voto === "") {
       return Swal.fire('Error','Seleccione su candidato.','error');
     }
     Swal.fire({
