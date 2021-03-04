@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VotacionOnlineComponent } from './votacion-online/votacion-online.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: 'votacion-online', component: VotacionOnlineComponent }
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({
@@ -14,4 +14,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class VotacionRoutingModule { }
+export class PagesRoutingModule { }

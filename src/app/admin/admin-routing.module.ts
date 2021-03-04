@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VotacionOnlineComponent } from './votacion-online/votacion-online.component';
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
-  { path: 'votacion-online', component: VotacionOnlineComponent }
+  { path: 'login-admin', component: AuthComponent },
 ];
 
 @NgModule({
@@ -14,4 +14,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class VotacionRoutingModule { }
+export class AdminRoutingModule { }

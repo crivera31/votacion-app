@@ -4,6 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { VotacionRoutingModule } from './votacion/votacion-routing.module';
 import { ViewRoutingModule } from './votacion/views/view-routing.module';
 
+import { AdminRoutingModule } from './admin/admin-routing.module';
+import { PagesRoutingModule } from './admin/pages/pages-routing.module';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/votacion-online', pathMatch: 'full' },
@@ -13,7 +16,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     VotacionRoutingModule,
-    ViewRoutingModule
+    ViewRoutingModule,
+    AdminRoutingModule,
+    PagesRoutingModule
   ],
   exports: [
     RouterModule

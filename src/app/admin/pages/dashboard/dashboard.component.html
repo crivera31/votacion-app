@@ -1,20 +1,16 @@
+<!-- <p>dashboard works!</p> -->
 <div class="container py-4">
   <section class="jumbotron text-center" style="padding: 8px 8px 8px 8px;">
     <div class="container">
       <h2>SISTEMA DE VOTACIONES ONLINE</h2>
       <h4>SINDICATO SECTOR SALUD</h4>
-      <p style="font-size: 20px;">Bienvenido Juan Perez Medrano</p>
     </div>
   </section>
-  <ul>
-    <li>Haga click en el nombre del Partido Político para ver sus candidatos.</li>
-    <li>Seleccione su candidato.</li>
-  </ul>
   <div class="container">
-    <form id="votarForm"  [formGroup]="votarForm" (ngSubmit)="onVotar()">
+    <form id="votarForm" >
       <div class="accordion" id="accordionExample">
         <div class="card" *ngFor="let item of lstData; index as i">
-          <div class="card-header" id="headingOne">
+          <div class="card-header" id="headingOne" *ngIf="item.nombre != 'VOTO EN BLANCO'">
             <h2 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed text-center" type="button"
                 data-toggle="collapse" [attr.data-target]="'#collapse' + (i+1)" aria-expanded="false"
@@ -26,18 +22,34 @@
           <div [attr.id]="'collapse' + (i+1)" class="collapse" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body">
-              <ul class="list-group list-group-horizontal" *ngFor="let candidato of item.candidatos">
+              <table class="table table-light">
+                <thead class="thead-light">
+                  <tr class="text-center">
+                    <th>Foto</th>
+                    <th>Nombre y Apellidos</th>
+                    <th>Votos</th>
+                  </tr>
+                </thead>
+                <tbody class="text-center">
+                  <tr *ngFor="let candidato of item.candidatos">
+                    <td>Foto</td>
+                    <td>{{ candidato.nombre }}</td>
+                    <td>{{candidato.cantidad}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <ul class="list-group list-group-horizontal" *ngFor="let candidato of item.candidatos">
                 <li class="list-group-item" style=" width: 8%; background-color: darkgray;"></li>
                 <li class="list-group-item text-center" style=" width: 84%;">{{candidato.nombre}}</li>
                 <li class="list-group-item text-center" style=" width: 8%;">
-                  <input type="radio" formControlName="voto" [value]="candidato.id">
+                  {{candidato.cantidad}}
                 </li>
-              </ul>
+              </ul> -->
 
             </div>
           </div>
         </div>
-        <div class="card">
+        <!-- <div class="card">
           <div class="card-header" id="headingThree">
             <ul class="list-group list-group-horizontal">
               <li class="list-group-item" style=" width: 8%;"></li>
@@ -47,10 +59,10 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
 
-      <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Votar</button>
+      <!-- <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Votar</button> -->
     </form>
   </div>
 </div>

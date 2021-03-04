@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { VotacionModule } from './votacion/votacion.module';
 import { ViewModule } from './votacion/views/view.module';
 
+import { AdminModule } from './admin/admin.module';
+import { PagesModule } from './admin/pages/pages.module';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -15,7 +18,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     VotacionModule,
-    ViewModule
+    ViewModule,
+    AdminModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

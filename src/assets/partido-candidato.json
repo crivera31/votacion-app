@@ -5,11 +5,13 @@
     "candidatos": [
       {
         "id": 10,
-        "nombre": "KELLY ROXANA PORTALATINO AVALOS"
+        "nombre": "KELLY ROXANA PORTALATINO AVALOS",
+        "cantidad": 5
       },
       {
         "id": 20,
-        "nombre": "ELIAS MARCIAL VARAS MELENDEZ"
+        "nombre": "ELIAS MARCIAL VARAS MELENDEZ",
+        "cantidad": 7
       }
     ]
   },
@@ -19,11 +21,24 @@
     "candidatos": [
       {
         "id": 30,
-        "nombre": "JHAEC DARWIN ESPINOZA VARGAS"
+        "nombre": "JHAEC DARWIN ESPINOZA VARGAS",
+        "cantidad": 4
       },
       {
         "id": 40,
-        "nombre": "PRAXEDES REGINA ARMAS SANCHEZ"
+        "nombre": "PRAXEDES REGINA ARMAS SANCHEZ",
+        "cantidad": 12
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "VOTO EN BLANCO",
+    "candidatos": [
+      {
+        "id": 99,
+        "nombre": "VOTO EN BLANCO",
+        "cantidad": 4
       }
     ]
   }

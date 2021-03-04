@@ -5,11 +5,10 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { VotacionComponent } from './votacion.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [VotacionOnlineComponent, VotacionComponent],
+  declarations: [VotacionOnlineComponent],
   imports: [
     CommonModule,
     BrowserModule,
