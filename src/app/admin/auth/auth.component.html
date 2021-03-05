@@ -14,16 +14,16 @@
               <label class="texto-v mb-4" for="inlineFormInputGroup">Iniciar Sesión</label>
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                  <div class="input-group-text">Usuario</div>
+                  <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
                 </div>
-                <input type="text" class="form-control" formControlName="usuario">
+                <input type="text" class="form-control" formControlName="usuario" placeholder="nombre de usuario">
               </div>
 
               <div class="input-group mb-2">
                 <div class="input-group-prepend">
-                  <div class="input-group-text">Contraseña</div>
+                  <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
                 </div>
-                <input type="password" class="form-control" formControlName="password">
+                <input type="password" class="form-control" formControlName="password" placeholder="contraseña">
               </div>
             </div>
             <button class="btn btn-primary btn-block" type="submit" [disabled]="loginForm.invalid">Entrar</button>
