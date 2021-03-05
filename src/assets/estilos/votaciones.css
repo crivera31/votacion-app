@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-color: #ebeef1;
+    background-color: #ebeef1!important;
 }
 
 input:focus, input.form-control:focus {
@@ -12,11 +12,11 @@ input:focus, input.form-control:focus {
 }
 
 .btn-primary{
-    background-color: #1241a5;
+    background-color: #1241a5!important;
 }
 
 .jumbotron{
-    background-color: #1241a5;
+    background-color: #1241a5!important;
     border-radius: 0;
 }
 
@@ -25,11 +25,25 @@ input:focus, input.form-control:focus {
 }
 
 .texto-v{
-    color: #1241a5;
+    color: #1241a5!important;
     font-weight: 600;
     font-size: 20px;
 } 
 
 ::placeholder {
     font-size: 12px;
+}
+
+.indicaciones-voto li{
+    font-size: 13px;
+}
+
+.card-header {
+    padding: 0rem 1.25rem;
+    background-color: #1241a5!important;
+    border-bottom: 2px solid #ffffff!important;
+}
+
+.candidatos{
+    float: left;
 }

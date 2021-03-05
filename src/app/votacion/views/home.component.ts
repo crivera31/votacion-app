@@ -53,6 +53,8 @@ export class HomeComponent implements OnInit {
 
     Swal.fire({
       title: '¿Desea Confirmar su voto?',
+      showCancelButton: true,
+      cancelButtonColor: '#d33',
       confirmButtonText: `Si`,
       allowOutsideClick: false
     }).then((result) => {
