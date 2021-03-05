@@ -3,7 +3,9 @@
     <div class="container">
       <h2>SISTEMA DE VOTACIONES ONLINE</h2>
       <h4>SINDICATO SECTOR SALUD</h4>
-      <p style="font-size: 20px;">Bienvenido Juan Perez Medrano</p>
+      <p>
+        <button type="button" class="btn btn-light" (click)="onLogout()">Salir</button>
+      </p>
     </div>
   </section>
   <ul>
@@ -26,31 +28,29 @@
           <div [attr.id]="'collapse' + (i+1)" class="collapse" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body">
-              <ul class="list-group list-group-horizontal" *ngFor="let candidato of item.candidatos">
+              <ul class="list-group list-group-horizontal" *ngFor="let candidato of item.candidato">
                 <li class="list-group-item" style=" width: 8%; background-color: darkgray;"></li>
                 <li class="list-group-item text-center" style=" width: 84%;">{{candidato.nombre}}</li>
                 <li class="list-group-item text-center" style=" width: 8%;">
                   <input type="radio" formControlName="voto" [value]="candidato.id">
                 </li>
               </ul>
-
             </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <ul class="list-group list-group-horizontal">
-              <li class="list-group-item" style=" width: 8%;"></li>
-              <li class="list-group-item text-center" style=" width: 84%;">Voto en Blanco</li>
-              <li class="list-group-item text-center" style=" width: 8%;">
-                <input type="radio" formControlName="voto" [value]="-1">
-              </li>
-            </ul>
-          </div>
+          <!-- <div class="card" *ngIf="item.nombre === 'VOTOS EN BLANCO' ">
+            <div class="card-header" id="headingThree">
+              <ul class="list-group list-group-horizontal">
+                <li class="list-group-item" style=" width: 8%;"></li>
+                <li class="list-group-item text-center" style=" width: 84%;">{{item.nombre}}</li>
+                <li class="list-group-item text-center" style=" width: 8%;">
+                  <input type="radio" formControlName="voto" [value]="">
+                </li>
+              </ul>
+            </div>
+          </div> -->
         </div>
       </div>
-
-      <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Votar</button>
+      <button type="submit" [disabled]="isVoto" class="btn btn-primary btn-lg btn-block mt-5">Votar</button>
     </form>
   </div>
 </div>

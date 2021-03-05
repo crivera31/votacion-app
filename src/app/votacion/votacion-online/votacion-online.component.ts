@@ -15,6 +15,9 @@ export class VotacionOnlineComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(localStorage.getItem('nombre') !== null) {
+      this.router.navigateByUrl('/home');
+    }
   }
 
   onlyNumberKey(event) {
@@ -25,18 +28,15 @@ export class VotacionOnlineComponent implements OnInit {
   onVotar() {
     const dni = this.dni.value;
     if(dni.length === 0) {
-      return  Swal.fire('Error','Ponga su DNI.','error');
+      return  Swal.fire('Error','Digite su DNI.','error');
     } else {
-      // console.log('mi dni: ',dni);
       this.votacionService.getVotante(dni).subscribe(
-        res => {
-          console.log(res)
+        (res: any) => {
           if(res.voto == 1) {
             return  Swal.fire('Error',res.nombre + ' usted ya realizo su voto.','error');
           } else {
             this.router.navigateByUrl('/home');
-            // alert('Bienvenido '+res.nombre)
-            Swal.fire('Bienvenido',res.nombre,'success');
+            Swal.fire('Bienvenido(a)',res.nombre,'success');
           }
         }
       );
