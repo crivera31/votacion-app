@@ -47,3 +47,10 @@ input:focus, input.form-control:focus {
 .candidatos{
     float: left;
 }
+
+.progress-bar small{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size: 15px;
+    font-weight: 800;
+}
