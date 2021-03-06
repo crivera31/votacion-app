@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { VotacionService } from 'src/app/service/votacion.service';
+import { VotacionService } from '../../service/votacion.service';
 import Swal from 'sweetalert2';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { VotacionService } from 'src/app/service/votacion.service';
+import { VotacionService } from '../../../service/votacion.service';
 
 @Component({
   selector: 'app-dashboard',

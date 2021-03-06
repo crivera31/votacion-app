@@ -32,14 +32,18 @@ export class VotacionOnlineComponent implements OnInit {
     } else {
       this.votacionService.getVotante(dni).subscribe(
         (res: any) => {
-          if(!res.validado) {
-            return  Swal.fire('Aviso','No se encontro un usuario con el DNI.','info');
-          }
+          console.log(res);
           if(res.voto == 1) {
             return  Swal.fire('Aviso',res.nombre + ' usted ya realizo su voto.','info');
           } else {
             this.router.navigateByUrl('/home');
             Swal.fire('Bienvenido(a)',res.nombre,'success');
+          }
+        },
+        (err) => {
+          // console.log(err);
+          if(!err.validado) {
+            return  Swal.fire('Aviso','No se encontro un usuario con el DNI.','info');
           }
         }
       );
