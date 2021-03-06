@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { VotacionService } from '../service/votacion.service';
+import { VotacionService } from '../../service/votacion.service';
 
 @Component({
   selector: 'app-votacion-online',
@@ -32,8 +32,11 @@ export class VotacionOnlineComponent implements OnInit {
     } else {
       this.votacionService.getVotante(dni).subscribe(
         (res: any) => {
+          if(!res.validado) {
+            return  Swal.fire('Aviso','No se encontro un usuario con el DNI.','info');
+          }
           if(res.voto == 1) {
-            return  Swal.fire('Error',res.nombre + ' usted ya realizo su voto.','error');
+            return  Swal.fire('Aviso',res.nombre + ' usted ya realizo su voto.','info');
           } else {
             this.router.navigateByUrl('/home');
             Swal.fire('Bienvenido(a)',res.nombre,'success');

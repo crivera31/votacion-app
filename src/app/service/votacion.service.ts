@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { tap,map, catchError, delay } from 'rxjs/operators';
-import { Votante } from 'src/app/model/votante';
 
 const base_url = environment.base_url;
 
@@ -12,7 +11,6 @@ const base_url = environment.base_url;
 })
 export class VotacionService {
   private cabezera = new HttpHeaders({ "content-Type": "application/json" });
-  public votante: Votante;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -25,20 +23,42 @@ export class VotacionService {
     localStorage.setItem('nombre',data.nombre);
     localStorage.setItem('valor',data.voto);
   }
+  guardarToken(token: any) {
+    localStorage.setItem('token',token);
+  }
 
   getVotante(dni: string) {
     return this.http.get<any>(`${base_url}/votantesvalidar/${dni}`).pipe(
       tap( res => {
-        this.guardarDatos(res);
+        console.log(res)
+        if(res.voto == 0) {
+          this.guardarDatos(res);
+        }
       })
     );
   }
   guardarVoto(data: {votante_id: any, candidato_id: any}) {
     return this.http.post<any>(`${base_url}/votantesvoto`, data,{  headers: this.cabezera });
   }
+
+  login(data: {username: any, password: any}) {
+    const httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
+    let params = new URLSearchParams();
+    params.set('username', data.username);
+    params.set('password', data.password);
+    return this.http.post<any>(`${base_url}/login`, params.toString(),{  headers: httpHeaders }).pipe(
+      tap( res => {
+        this.guardarToken(res.api_token);
+      })
+    );
+  }
+
   logout() {
     localStorage.removeItem('nombre');
     localStorage.removeItem('id');
     localStorage.removeItem('valor');
+  }
+  logout_admin() {
+    localStorage.removeItem('token');
   }
 }

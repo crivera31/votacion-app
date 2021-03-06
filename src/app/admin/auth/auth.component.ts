@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { VotacionService } from 'src/app/service/votacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-auth',
@@ -10,9 +12,9 @@ import { Router } from '@angular/router';
 export class AuthComponent implements OnInit {
   public loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private votacionService: VotacionService) {
     this.loginForm = this.fb.group({
-      usuario: ['', [Validators.required]],
+      username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
   }
@@ -25,21 +27,16 @@ export class AuthComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.value)
-    // this.usuario.email = this.loginForm.get('email').value;
-    // this.usuario.password = this.loginForm.get('password').value;    
-    // this.usuarioService.login(this.usuario).subscribe(
-    //   res => {
-    //     console.log("Logueado => " ,res);
-    //     /**redirigir a dashboard */
+    this.votacionService.login(this.loginForm.value).subscribe(
+      res => {
+        /**redirigir a dashboard */
         this.router.navigateByUrl('/dashboard');
-    //     this.baseService.msgSuccess(res.msg);
-    //   },
-    //   err => {
-    //     // console.log(err);
-    //     this.baseService.msgError(err.error.msg);
-    //   }
-    // );
+        Swal.fire('Bienvenido',res.username,'success');
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }

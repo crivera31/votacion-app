@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { VotacionService } from 'src/app/votacion/service/votacion.service';
+import { Router } from '@angular/router';
+import { VotacionService } from 'src/app/service/votacion.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import { VotacionService } from 'src/app/votacion/service/votacion.service';
 export class DashboardComponent implements OnInit {
   public lstData: any;
   
-  constructor(private votacionService: VotacionService) { }
+  constructor(private votacionService: VotacionService, private router: Router) { }
 
   ngOnInit(): void {
     this.listar();
@@ -19,9 +20,14 @@ export class DashboardComponent implements OnInit {
     this.votacionService.listarCandidatoPartido().subscribe(
       res => {
         console.log(res)
-        this.lstData = res;
+        this.lstData = res.data;
       }
     )
+  }
+
+  onLogout() {
+    this.votacionService.logout_admin();
+    this.router.navigateByUrl('/login-admin')
   }
 
 }

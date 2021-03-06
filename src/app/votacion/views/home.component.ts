@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Votante } from 'src/app/model/votante';
 import Swal from 'sweetalert2';
-import { VotacionService } from '../service/votacion.service';
+import { VotacionService } from '../../service/votacion.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +21,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.isVoto);
     this.listar();
     if(localStorage.getItem('nombre') === null || localStorage.getItem('id') == null) {
       this.votacionService.logout();
