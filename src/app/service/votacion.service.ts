@@ -17,6 +17,9 @@ export class VotacionService {
   listarCandidatoPartido() {
     return this.http.get<any>(`${base_url}/partidos`);
   }
+  listarVoto_x_Candidato() {
+    return this.http.get<any>(`${base_url}/votantesresultado`);
+  }
 
   guardarDatos(data: any) {
     localStorage.setItem('id',data.id);

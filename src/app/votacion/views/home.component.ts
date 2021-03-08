@@ -66,7 +66,9 @@ export class HomeComponent implements OnInit {
         this.isVoto = true;
         this.votacionService.guardarVoto(data).subscribe(
           res => {
-            console.log(res)
+            console.log(res);
+            this.votacionService.logout();
+            this.router.navigateByUrl('/votacion-online')
             Swal.fire('Éxito!', 'Su voto ha sido realizado exitosamente.', 'success');
 
           }
