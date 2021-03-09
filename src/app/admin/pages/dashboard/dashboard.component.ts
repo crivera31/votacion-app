@@ -112,10 +112,8 @@ export class DashboardComponent implements OnInit {
   }
   @ViewChild('pdfTable') pdfTable: ElementRef;
 
-  public downloadPDF(): void {
-    
-    
-    console.log(this.lstTodo)
+  public downloadPDF(): void {    
+    // console.log(this.lstTodo);
 
     const pdf = new jsPDF('p','pt', 'a4');
     //get table html
@@ -128,6 +126,10 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  formato(dato1: any, dato2: any) {
+    const valor = ((dato1 / dato2) * 100).toFixed(2);
+    return valor;
+  }
   onLogout() {
     this.votacionService.logout_admin();
     this.router.navigateByUrl('/login-admin')

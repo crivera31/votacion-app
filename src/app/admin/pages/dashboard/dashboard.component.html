@@ -14,10 +14,10 @@
       <p class="mt-5">Candidatos con mayor porcentaje de votos</p>
 
       <div *ngFor="let item of lstTres">
-        <h6  class="text-center"><b>{{item.nombre}}</b></h6>
+        <h6  class="text-center"><b>{{item.nombre}}</b>({{ (item.votantes_count /total_votantes) * 100 | number : '1.2-2'}}%)</h6>
         <div class="progress mb-3" style="height: 20px;">
           <div class="progress-bar progress-bar-striped bg-info progress-bar-animated"
-          [ngStyle]="{'width': (item.votantes_count /total_votantes) * 100 + '%'}"
+          [ngStyle]="{'width': formato(item.votantes_count, total_votantes)}"
           role="progressbar">{{ (item.votantes_count /total_votantes) * 100 | number : '1.2-2'}}%</div>
         </div>
       </div>
@@ -55,11 +55,11 @@
             <td t="s">{{ (item.votantes_count /total_votantes) * 100 | number : '1.2-2'}}%</td>
           </tr>
           <tr>
-            <td colspan="3">TOTAL DE PERSONAS QUE VOTARON</td>
+            <td colspan="3"><b>TOTAL DE PERSONAS QUE VOTARON</b></td>
             <td>{{total_per_vot}}</td>
           </tr>
           <tr>
-            <td colspan="3">TOTAL DE PERSONAS QUE NO VOTARON</td>
+            <td colspan="3"><b>TOTAL DE PERSONAS QUE NO VOTARON</b></td>
             <td>{{total_per_no_vot}}</td>
           </tr>
         </tbody>
@@ -83,6 +83,14 @@
               <td>{{candidato.nombre}}</td>
               <!-- <td style="width: 10%;" class="text-center">{{candidato.votantes_count}}</td> -->
               <td>{{candidato.votantes_count}} ({{ (candidato.votantes_count /total_votantes) * 100 | number : '1.2-2'}}%)</td>
+            </tr>
+            <tr>
+              <td colspan="2"><b>TOTAL DE PERSONAS QUE VOTARON</b></td>
+              <td>{{total_per_vot}}</td>
+            </tr>
+            <tr>
+              <td colspan="2"><b>TOTAL DE PERSONAS QUE NO VOTARON</b></td>
+              <td>{{total_per_no_vot}}</td>
             </tr>
           </div>
           </table>

@@ -27,6 +27,11 @@ export class AuthComponent implements OnInit {
   }
 
   login() {
+    const { username } = this.loginForm.value;
+    const { password } = this.loginForm.value;
+    if(username === '' || password === '') {
+      return Swal.fire('Error','Ingrese su usuario o contraseña.','error');
+    }
     this.votacionService.login(this.loginForm.value).subscribe(
       res => {
         /**redirigir a dashboard */
@@ -34,7 +39,10 @@ export class AuthComponent implements OnInit {
         Swal.fire('Bienvenido',res.username,'success');
       },
       err => {
-        console.log(err);
+        // console.log(err);
+        if(err.status == 400) {
+          Swal.fire('Error',err.error.msg,'error');
+        }
       }
     );
   }
