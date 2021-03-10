@@ -14,7 +14,7 @@
   <div class="container">
     <form id="votarForm"  [formGroup]="votarForm" (ngSubmit)="onVotar()">
       <div class="accordion" id="accordionExample">
-        <div class="card" *ngFor="let item of lstData; index as i">
+        <div class="card" *ngFor="let item of lstPartidoVotante; index as i">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed text-center text-decoration-none text-white" type="button"
@@ -27,7 +27,7 @@
           <div [attr.id]="'collapse' + (i+1)" class="collapse" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body">
-              <ul class="list-group list-group-horizontal" *ngFor="let candidato of item.candidato">
+              <ul class="list-group list-group-horizontal" *ngFor="let candidato of item.candidatos">
                 <li class="list-group-item" style=" width: 8%; background-color: darkgray;"></li>
                 <li class="list-group-item text-center" style=" width: 84%;">{{candidato.nombre}}</li>
                 <li class="list-group-item text-center" style=" width: 8%;">

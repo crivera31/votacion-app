@@ -10,7 +10,7 @@ import { VotacionService } from '../../service/votacion.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public lstData: any;
+  public lstPartidoVotante: any;
   public isVoto: boolean;
 
   votarForm = new FormGroup({
@@ -31,8 +31,8 @@ export class HomeComponent implements OnInit {
   listar() {
     this.votacionService.listarCandidatoPartido().subscribe(
       res => {
-        // console.log(res.data);
-        this.lstData = res.data;
+        // console.log(res);
+        this.lstPartidoVotante = res.data;
       }
     )
   }

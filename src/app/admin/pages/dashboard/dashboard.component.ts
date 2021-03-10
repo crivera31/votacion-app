@@ -14,6 +14,7 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import htmlToPdfmake from 'html-to-pdfmake';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,6 +26,7 @@ export class DashboardComponent implements OnInit {
   public lstData: any;
   public lstTres: any;
   // public lstPartidos: any;
+  public fileURL: any;
   public lstVotantes: any;
   public lstPartidoCandidato: any;
   public total_votantes: any;
@@ -39,6 +41,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.listar();
+    if(localStorage.getItem('token') === null) {
+      this.votacionService.logout();
+      this.router.navigateByUrl('/login-admin');
+    }
   }
 
   listar() {
@@ -112,18 +118,21 @@ export class DashboardComponent implements OnInit {
   }
   @ViewChild('pdfTable') pdfTable: ElementRef;
 
-  public downloadPDF(): void {    
+  public downloadPDF() {
     // console.log(this.lstTodo);
-
-    const pdf = new jsPDF('p','pt', 'a4');
-    //get table html
-    const pdfTable = this.pdfTable.nativeElement;
-    //html to pdf format
-    var html = htmlToPdfmake(pdfTable.innerHTML);
+    // const pdf = new jsPDF('p','pt', 'a4');
+    // //get table html
+    // const pdfTable = this.pdfTable.nativeElement;
+    // //html to pdf format
+    // var html = htmlToPdfmake(pdfTable.innerHTML);
    
-    const documentDefinition = { content: html };
-    pdfMake.createPdf(documentDefinition).open();
+    // const documentDefinition = { content: html };
+    // pdfMake.createPdf(documentDefinition).open();
+    window.location.href = environment.base_url + '/descargarPdf';
+  }
 
+  public exportarTodo() {
+    window.location.href = environment.base_url + '/descargarExcel';
   }
 
   formato(dato1: any, dato2: any) {

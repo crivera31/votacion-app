@@ -20,6 +20,9 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(localStorage.getItem('token') !== null) {
+      this.router.navigateByUrl('/dashboard');
+    }
   }
 
   isValidField(field: string): boolean {
@@ -34,6 +37,7 @@ export class AuthComponent implements OnInit {
     }
     this.votacionService.login(this.loginForm.value).subscribe(
       res => {
+        console.log(res)
         /**redirigir a dashboard */
         this.router.navigateByUrl('/dashboard');
         Swal.fire('Bienvenido',res.username,'success');
