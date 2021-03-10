@@ -3,7 +3,7 @@
     <div class="container text-white">
       <h2>TRIBUNAL ELECTORAL DEL SECTOR SALUD</h2>
       <h4>SISTEMA DE VOTACIONES ONLINE</h4>
-      <!-- <button type="button" class="btn btn-light btn-sm mt-3" (click)="onLogout()">Salir sin votar</button> -->
+      <button type="button" class="btn btn-light btn-sm mt-3" (click)="onLogout()">Salir sin votar</button>
     </div>
   </section>
   <ul class="indicaciones-voto mb-4">
@@ -27,7 +27,7 @@
           <div [attr.id]="'collapse' + (i+1)" class="collapse" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body">
-              <ul class="list-group list-group-horizontal" *ngFor="let candidato of item.candidato">
+              <ul class="list-group list-group-horizontal" *ngFor="let candidato of item.candidatos">
                 <li class="list-group-item" style=" width: 8%; background-color: darkgray;"></li>
                 <li class="list-group-item text-center" style=" width: 84%;">{{candidato.nombre}}</li>
                 <li class="list-group-item text-center" style=" width: 8%;">
