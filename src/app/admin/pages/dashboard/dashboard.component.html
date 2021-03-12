@@ -4,7 +4,8 @@
     <div class="container text-white">
       <h2>TRIBUNAL ELECTORAL DEL SECTOR SALUD</h2>
       <h4>SISTEMA DE VOTACIONES ONLINE</h4>
-      <button type="button" class="btn btn-warning float-right" (click)="onLogout()">Salir</button>
+      <!-- <button type="button" class="btn btn-success btn-sm mr-1" (click)="recargarPagina()">Recargar Página</button> -->
+      <button type="button" class="btn btn-warning btn-sm" (click)="onLogout()">Salir</button>      
     </div>
   </section>
   <section class="py-4" style="background-color: #fff!important;">
@@ -31,8 +32,8 @@
         <p class="mt-2">Reporte</p>
         <button type="button" class="btn btn-outline-danger btn-sm ml-2" (click)="downloadPDF()">RESULTADOS GENERAL PDF</button>
         <!-- <button type="button" class="btn btn-outline-info btn-sm ml-2" (click)="exportarTodo()">Toda la data</button> -->
-        <button type="button" class="btn btn-outline-info btn-sm ml-2" (click)="exportarVotantes()">RELACION VOTANTES</button>
-        <button type="button" class="btn btn-outline-success btn-sm ml-2" (click)="ExportToExcel()">RELACION CANDIDATOS</button>
+        <!-- <button type="button" class="btn btn-outline-info btn-sm ml-2" (click)="exportarVotantes()">RELACION VOTANTES</button>
+        <button type="button" class="btn btn-outline-success btn-sm ml-2" (click)="ExportToExcel()">RELACION CANDIDATOS</button> -->
       </div>
       <table class="table table-hover mt-4 my-tbody" #tablaTotal>
         <thead class="text-center">

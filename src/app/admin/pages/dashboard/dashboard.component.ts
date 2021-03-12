@@ -37,7 +37,9 @@ export class DashboardComponent implements OnInit {
   public nombre_ganador: any;
   public votos_ganador: any;
   
-  constructor(private votacionService: VotacionService, private router: Router) { }
+  constructor(private votacionService: VotacionService, private router: Router) { 
+    setInterval(() => this.recargarPagina(), 10000);
+  }
 
   ngOnInit(): void {
     this.listar();
@@ -142,6 +144,10 @@ export class DashboardComponent implements OnInit {
   onLogout() {
     this.votacionService.logout_admin();
     this.router.navigateByUrl('/login-admin')
+  }
+
+  recargarPagina(){
+    this.ngOnInit();
   }
 
 }

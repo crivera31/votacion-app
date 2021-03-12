@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  base_url: 'http://votacionesapi.adersonjaraweb.com/api'
+  base_url: 'http://votacionesapi.test:8080/api'
 };
 
 /*

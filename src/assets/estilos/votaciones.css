@@ -1,9 +1,9 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-color: #ebeef1!important;
+    background-color: #314c7a!important;
 }
 
-input:focus, input.form-control:focus {
+input:focus, input.form-control:focus, select:focus,select.custom-select:focus,.btn-primary:focus {
     outline:none !important;
     outline-width: 0 !important;
     box-shadow: none;
@@ -11,13 +11,24 @@ input:focus, input.form-control:focus {
     -webkit-box-shadow: none;
 }
 
-.btn-primary{
-    background-color: #1241a5!important;
+.btn-primary, .btn-primary:focus  {
+    background-color: #314c7a;
+    border-color: #314c7a;
+}
+
+.btn-primary:hover{
+    background-color: #426298;
+    border-color: #426298;
 }
 
 .jumbotron{
-    background-color: #1241a5!important;
+    background-color: #fff!important;
     border-radius: 0;
+}
+@media (min-width: 576px){
+    .jumbotron {
+        padding: 1rem 2rem;
+    }
 }
 
 .jumbotron h2{
@@ -25,7 +36,7 @@ input:focus, input.form-control:focus {
 }
 
 .texto-v{
-    color: #1241a5!important;
+    color: #314c7a!important;
     font-weight: 600;
     font-size: 20px;
 } 
@@ -36,12 +47,13 @@ input:focus, input.form-control:focus {
 
 .indicaciones-voto li{
     font-size: 13px;
+    color: #fff;
 }
 
 .card-header {
     padding: 0rem 1.25rem;
-    background-color: #1241a5!important;
-    border-bottom: 2px solid #ffffff!important;
+    background-color: #35597b!important;
+    border-bottom: 2px solid #314c7a!important;
 }
 
 .candidatos{
@@ -53,4 +65,8 @@ input:focus, input.form-control:focus {
     color: #000;
     font-size: 15px;
     font-weight: 800;
+}
+
+.cargos{
+    font-size: 14px;
 }
