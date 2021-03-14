@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 
@@ -11,7 +12,8 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     BrowserModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ]
 })
 export class PagesModule { }

@@ -17,16 +17,12 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text">DNI</div>
                 </div>
-                <input type="text" class="form-control" (keypress)="onlyNumberKey($event)" maxlength="8" placeholder="" [formControl]="dni">
+                <input type="text" class="form-control" (keypress)="onlyNumberKey($event)" maxlength="8" placeholder="" [formControl]="login.dni">
               </div>
               <div class="input-group mb-2">
-                <select class="custom-select cargos">
-                  <option selected>Elija su Cargo Ocupacional</option>
-                  <option value="1">Enfermero (a)</option>
-                  <option value="2">Obstetriz</option>
-                  <option value="3">Cirujano Dentista</option>
-                  <option value="4">Médico I</option>
-                  <option value="5">Tec. Laboratorio I</option>
+                <select class="custom-select cargos"  [formControl]="login.cargo_id">
+                  <option value="">Elija su Cargo Ocupacional</option>
+                  <option [value]="carg.id"  *ngFor="let carg of listadoCargos">{{ carg.nombre }}</option>
                 </select>
               </div>
             </div>

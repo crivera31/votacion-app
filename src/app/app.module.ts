@@ -10,9 +10,10 @@ import { PagesModule } from './admin/pages/pages.module';
 
 import { AppComponent } from './app.component';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

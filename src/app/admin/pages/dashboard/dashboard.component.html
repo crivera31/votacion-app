@@ -1,13 +1,11 @@
-<!-- <p>dashboard works!</p> -->
-<div class="container">
   <section class="jumbotron text-center">
     <div class="container text-white">
-      <h2>TRIBUNAL ELECTORAL DEL SECTOR SALUD</h2>
-      <h4>SISTEMA DE VOTACIONES ONLINE</h4>
+      <img src="assets/img/banner.png" alt="" class="img-fluid">
       <!-- <button type="button" class="btn btn-success btn-sm mr-1" (click)="recargarPagina()">Recargar Página</button> -->
-      <button type="button" class="btn btn-warning btn-sm" (click)="onLogout()">Salir</button>      
+      <button type="button" class="btn btn-warning btn-sm d-block ml-auto" (click)="onLogout()">Salir</button>
     </div>
   </section>
+<div class="container">
   <section class="py-4" style="background-color: #fff!important;">
     <div class="container">
       <h4 class="text-center">Panel de Administrador</h4>
@@ -15,11 +13,11 @@
       <p class="mt-5">Candidatos con mayor porcentaje de votos</p>
 
       <div *ngFor="let item of lstTres">
-        <h6  class="text-center"><b>{{item.nombre}}</b>({{ (item.votantes_count /total_votantes) * 100 | number : '1.2-2'}}%)</h6>
+        <h6  class="text-center"><b>{{item.nombre}}</b> ({{(item.votantes_count | porcentajes: total_votantes)}}%)</h6>
         <div class="progress mb-3" style="height: 20px;">
           <div class="progress-bar progress-bar-striped bg-info progress-bar-animated"
-          [ngStyle]="{'width': formato(item.votantes_count, total_votantes)}"
-          role="progressbar">{{ (item.votantes_count /total_votantes) * 100 | number : '1.2-2'}}%</div>
+          [style.width]="(item.votantes_count | porcentajes: total_votantes)+'%'"
+          role="progressbar"></div>
         </div>
       </div>
       <!-- <h6  class="text-center"><b>Diego Corales</b></h6>
@@ -30,7 +28,8 @@
       <hr>
       <div class="text-center">
         <p class="mt-2">Reporte</p>
-        <button type="button" class="btn btn-outline-danger btn-sm ml-2" (click)="downloadPDF()">RESULTADOS GENERAL PDF</button>
+        <a class="btn btn-outline-danger btn-sm ml-2 mb-1" (click)="downloadPDF()">VER RESULTADOS PDF</a>
+        <a class="btn btn-outline-success btn-sm ml-2 mb-1" (click)="cargoPDF()">REPORTE CARGO OCUPACIONAL</a>
         <!-- <button type="button" class="btn btn-outline-info btn-sm ml-2" (click)="exportarTodo()">Toda la data</button> -->
         <!-- <button type="button" class="btn btn-outline-info btn-sm ml-2" (click)="exportarVotantes()">RELACION VOTANTES</button>
         <button type="button" class="btn btn-outline-success btn-sm ml-2" (click)="ExportToExcel()">RELACION CANDIDATOS</button> -->
@@ -49,7 +48,7 @@
             <td>{{i+1}}</td>
             <td style="max-width:220px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{item.nombre}}</td>
             <td>{{item.votantes_count}}</td>
-            <td t="s">{{ (item.votantes_count /total_votantes) * 100 | number : '1.2-2'}}%</td>
+            <td t="s">{{(item.votantes_count | porcentajes: total_votantes)}}%</td>
           </tr>
           <tr>
             <td colspan="3"><b>TOTAL DE PERSONAS QUE VOTARON</b></td>

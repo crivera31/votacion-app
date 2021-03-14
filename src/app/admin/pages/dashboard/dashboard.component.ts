@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
   public votos_ganador: any;
   
   constructor(private votacionService: VotacionService, private router: Router) { 
-    setInterval(() => this.recargarPagina(), 10000);
+    //setInterval(() => this.recargarPagina(), 10000);
   }
 
   ngOnInit(): void {
@@ -130,15 +130,21 @@ export class DashboardComponent implements OnInit {
    
     // const documentDefinition = { content: html };
     // pdfMake.createPdf(documentDefinition).open();
-    window.location.href = environment.base_url + '/descargarPdf';
+    // window.location.href = environment.base_url + '/descargarPdf';
+       window.open(environment.base_url + '/descargarPdf','_blank');
+  }
+
+  public cargoPDF() {
+      window.open(environment.base_url + '/descargarPdfCargo','_blank');
   }
 
   public exportarTodo() {
     window.location.href = environment.base_url + '/descargarExcel';
   }
 
-  formato(dato1: any, dato2: any) {
-    const valor = ((dato1 / dato2) * 100).toFixed(2);
+  formato(dato1: number) {
+    const valor = ((dato1 / this.total_votantes) * 100);
+    console.log(valor);
     return valor;
   }
   onLogout() {

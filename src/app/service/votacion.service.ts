@@ -21,6 +21,10 @@ export class VotacionService {
     return this.http.get<any>(`${base_url}/votantesresultado`);
   }
 
+  getCargos() {
+    return this.http.get<any>(`${base_url}/onlycargos`);
+  }
+
   guardarDatos(data: any) {
     localStorage.setItem('id',data.id);
     localStorage.setItem('nombre',data.nombre);
@@ -30,8 +34,8 @@ export class VotacionService {
     localStorage.setItem('token',token);
   }
 
-  getVotante(dni: string) {
-    return this.http.get<any>(`${base_url}/votantesvalidar/${dni}`).pipe(
+  getVotante(dataEnviada: any) {
+    return this.http.get<any>(`${base_url}/votantesvalidar/${dataEnviada.dni}/${dataEnviada.cargo_id}`).pipe(
       tap( res => {
         console.log(res)
         if(res.voto == 0) {
